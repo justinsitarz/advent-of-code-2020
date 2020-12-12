@@ -3,7 +3,7 @@
 import re
 
 bags = set()
-bag_list = [['shiny gold', 1]]
+bag_list = [['shiny gold', 2]]
 count = 0
 global_bags = []
 bag_total = 0
@@ -74,8 +74,8 @@ def check_bags(bag_list):
 	global bag_total
 	for bag in bag_list:
 		multiplier = bag[1]
-		print(multiplier)
-		print(bag)
+		print('Multiplier: {}'.format(multiplier))
+		print('Bag: {}'.format(bag))
 		check_bags(bag_dict[bag[0]])
 
 
