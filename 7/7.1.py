@@ -24,7 +24,7 @@ def build_graph(bag_rules):
 		inner_list = []
 		for inner in inner_tmp:
 			inner_bag = get_inner_bags(inner)
-			print(inner_bag)
+			print(inner_bag )
 			bag_dict[outer].append([inner_bag[0], inner_bag[1]])
 	return bag_dict
 
