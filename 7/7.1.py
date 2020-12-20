@@ -3,7 +3,7 @@
 import re
 
 bags = set()
-bag_list = [('shiny gold', '1')]
+bag_list = [('shiny gold', 1)]
 count = 0
 global_bags = []
 
@@ -24,8 +24,13 @@ def build_graph(bag_rules):
 		inner_list = []
 		for inner in inner_tmp:
 			inner_bag = get_inner_bags(inner)
+<<<<<<< HEAD
 			print(inner_bag )
 			bag_dict[outer].append([inner_bag[0], inner_bag[1]])
+=======
+			print(inner_bag)
+			bag_dict[outer].append(inner_bag)
+>>>>>>> c1837015d5959fc617bbaf64fa665fe13f309cbb
 	return bag_dict
 
 def get_inner_bags(bag):
@@ -66,13 +71,18 @@ def check_contents_of_shiny_gold(bag_dict, bag_list):
 			global_bags.append(new_bags)
 			check_contents_of_shiny_gold(bag_dict, new_bags)
 
+def write_file(filename):
+	global bag_dict
+	f = open(filename, "w") 
+	f.write(str(bag_dict))
 
-bag_rules = format_input('test-input.txt')
+bag_rules = format_input('input.txt')
 bag_dict = build_graph(bag_rules)
 # print(bag_dict)
-all_bags = check_for_gold(bag_dict, bag_list)
+# all_bags = check_for_gold(bag_dict, bag_list)
 # print("Number of bag colors that can contain 'shiny gold': " + str(len(all_bags)))
-check_contents_of_shiny_gold(bag_dict, bag_list)
+# check_contents_of_shiny_gold(bag_dict, bag_list)
+write_file('input-formatted.txt')
 
 
 
